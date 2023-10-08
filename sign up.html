@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .id{
+        width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+      }
+#text{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#submit{
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: #8d29eb;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #13b6b6;
+  padding: 20px;
+  border: black;
+border-width: 2px;
+border-style: solid;
+}
+body{
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+h2{
+    text-align: center;
+}
+
+    </style>
+    <script>
+        function ValidateEmail(inputText)
+        {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(inputText.value.match(mailformat))
+        {
+        return true;
+        }
+        else
+        {
+        alert("You have entered an invalid email address!");
+        document.form.email.focus();
+        return false;
+        }
+        }
+
+        function verifyPassword() {  
+        var pw = document.getElementById("password").value;  
+        var pw1=document.getElementById("password1").value;
+        var user=document.getElementById("username").value;
+        //check empty password field 
+        if(user == ""){
+          alert("enter username!");
+          return false;
+        } 
+        if(pw == "") {  
+          alert("Enter password!");
+          return false;  
+        }  
+        
+      //minimum password length validation  
+        if(pw.length < 8) {  
+          alert("password is too short!!")
+          return false;  
+        }  
+        
+      //maximum length of password validation  
+        if(pw.length > 15) {  
+          alert("password greater than 15,make less than 15")
+          return false;  
+        }
+        if(pw != pw1){
+          alert("enter correct ,password mismatch!");
+          return false;
+        }
+        else {  
+          alert("Signed Up Successfully!!!");  
+        }  
+      }  
+        </script>
+</head>
+<body>
+    <div>
+    <form name="form" action="welcome.html" class="form" onsubmit="return verifyPassword()">
+        <h2>Sign Up</h2>
+        <label for="">FIRST NAME</label><br>
+        <input type="text" placeholder="enter your first name" id="text" required><br><br>
+        <label for="">LAST NAME</label><br>
+        <input type="text" placeholder="enter your last name" id="text" required><br><br>
+        <label for="">USER NAME</label><br>
+        <input type="text" placeholder="enter your username" id="username" name="username" class="id"><br><br>
+        <label for="">EMAIL</label><br>
+        <input type="email" placeholder="enter your email address" id="text" name="email"><br><br>
+        <label for="">PASSWORD</label><br>
+        <input type="password" placeholder="create password" id="password" class="id" required><br><br>
+        <label for="">CONFIRM PASSWORD</label><br>
+        <input type="password" placeholder="confirm password" id="password1" class="id" required><br><br>
+        <input type="checkbox">
+        <label for="">Remember me</label><br><br>
+        <input type="checkbox">
+        <SPAN> By creating account you are agree to our <a href="term.html">Terms & Policy</a></SPAN><br><br>
+        <button type="submit" onclick="return ValidateEmail(document.form.email)" id="submit">Submit</button>
+        
+</form>
+</div>
+</body>
+</html>
